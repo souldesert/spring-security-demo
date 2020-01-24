@@ -1,4 +1,4 @@
-package ru.voskhod.springsecutity.demo.controller;
+package ru.voskhod.springsecurity.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

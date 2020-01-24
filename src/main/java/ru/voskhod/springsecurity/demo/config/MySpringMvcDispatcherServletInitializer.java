@@ -1,4 +1,4 @@
-package ru.voskhod.springsecutity.demo.config;
+package ru.voskhod.springsecurity.demo.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

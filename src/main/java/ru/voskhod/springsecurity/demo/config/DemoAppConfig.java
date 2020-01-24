@@ -1,4 +1,4 @@
-package ru.voskhod.springsecutity.demo.config;
+package ru.voskhod.springsecurity.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "ru.voskhod.springsecutity.demo")
+@ComponentScan(basePackages = "ru.voskhod.springsecurity.demo")
 public class DemoAppConfig {
 
     // define a bean for ViewResolver
