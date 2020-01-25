@@ -27,10 +27,8 @@
 </p>
 
 <hr>
-
-<hr>
 <!-- Add logout button -->
-<form:form action="${pageContext.request.contextPath}/logout" method="post">
+<form:form action="${pageContext.request.contextPath}" method="post">
     <input type="submit" value="Logout">
 </form:form>
 </body>
