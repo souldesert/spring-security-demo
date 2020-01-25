@@ -42,6 +42,10 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                     // will be created automatically
                     .loginProcessingUrl("/authenticateUser")
                     // everyone can access the login page
+                    .permitAll()
+                .and()
+                    // automatically creates "/logout" endpoint
+                    .logout()
                     .permitAll();
 
 
