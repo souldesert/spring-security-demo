@@ -24,8 +24,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.inMemoryAuthentication()
                 .withUser(users.username("john").password("test123").roles("EMPLOYEE"))
-                .withUser(users.username("mary").password("test123").roles("EMPLOYEE", "MANAGER"))
-                .withUser(users.username("susan").password("test123").roles("EMPLOYEE", "ADMIN"));
+                .withUser(users.username("mary").password("test123").roles("MANAGER"))
+                .withUser(users.username("susan").password("test123").roles("ADMIN"));
     }
 
     @Override
@@ -36,19 +36,23 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                 // public landing page
                 .antMatchers("/").permitAll()
                 // private resources
-                .antMatchers("/employees").hasRole("EMPLOYEE")
+                .antMatchers("/employees").hasAnyRole("EMPLOYEE", "MANAGER", "ADMIN")
+                .antMatchers("/leaders/**").hasAnyRole("MANAGER")
+                .antMatchers("/systems/**").hasAnyRole("MANAGER", "ADMIN")
                 .and()
                 // customizing the form login process
                 .formLogin()
                     .loginPage("/showMyLoginPage")
                     // will be created automatically
-                    .loginProcessingUrl("/authenticateUser")
+                    .loginProcessingUrl("/authenticateUser").defaultSuccessUrl("/employees")
                     // everyone can access the login page
                     .permitAll()
                 .and()
                     // automatically creates "/logout" endpoint
                     .logout()
-                    .permitAll();
+                    .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDenied");
 
 
     }
