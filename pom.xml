@@ -18,7 +18,8 @@
     <maven.compiler.source>13</maven.compiler.source>
     <maven.compiler.target>13</maven.compiler.target>
 
-    <springframework.version>5.2.3.RELEASE</springframework.version>
+    <springframework.version>5.2.1.RELEASE</springframework.version>
+    <springsecurity.version>5.2.1.RELEASE</springsecurity.version>
   </properties>
 
   <dependencies>
@@ -60,7 +61,19 @@
       <version>2.3.1</version>
     </dependency>
 
+    <!-- Spring Security -->
 
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${springsecurity.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${springsecurity.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
